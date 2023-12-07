@@ -1,0 +1,10 @@
+.canvas-main{
+    min-width: 100px;
+    min-height: 128px;
+    /* aspect-ratio: 8 / 16; */
+
+    width: min-content;
+    height: fit-content;
+    
+    border: solid 1px red;
+}
