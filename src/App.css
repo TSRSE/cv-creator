@@ -3,6 +3,13 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body{
+    padding: 0;
+    margin: 0;
+    background-color: rgb(31, 36, 54);
+    color: aliceblue;
+}
+
 main{
     font-family: 'Roboto', sans-serif;
     display: flex;

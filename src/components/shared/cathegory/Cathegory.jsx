@@ -5,11 +5,12 @@ import './cathegory.css'
 
 import React, { useState } from 'react'
 
-export default function Cathegory({modular = false, title = '', isOpen = false}) {
+export default function Cathegory({modular = false, title = '', isOpen = false, fields=[]}) {
   return (
     <>
       <div>{title}</div>
-      <DropDown modular={modular} isOpen={isOpen}/>
+      {/* {console.log(fields)} */}
+      <DropDown modular={modular} isOpen={isOpen} fields={fields}/>
     </>
   )
 }
