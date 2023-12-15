@@ -38,3 +38,12 @@ button:disabled{
     background-color: var(--color-accent);
     color: #fff;
 }
+
+.red{
+    color: #fff;
+    background-color: rgb(212, 66, 66);
+    width: min-content;
+    margin: 0px;
+    margin-top: 8px;
+    margin-bottom: -12px;
+}

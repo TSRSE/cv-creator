@@ -5,7 +5,7 @@ import './form.css'
 
 import React from 'react'
 
-export default function Form({fields = [], title = '', isModular = false}) {
+export default function Form({fields = [], title = '', isModular = false, isDeletable = false}) {
 
   const isNotDisplayable = fields == undefined || fields.length < 1
 
@@ -16,8 +16,9 @@ export default function Form({fields = [], title = '', isModular = false}) {
   const getForm = () => {
     return(
       <div className='form'>
-       <h4>{title}</h4>
+       <h2>{title}</h2>
        {fieldList}
+       {isDeletable && <Button text='Delete' type='red'/>}
      </div>
     )
   }

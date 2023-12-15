@@ -7,9 +7,9 @@ export default function InputField({placeholder='placeholder', hasLabel = true})
     const [value, setValue] = useState('')
 
   return (
-    <>
-    { hasLabel && <p>{placeholder}</p> } 
-    <input className='field' placeholder={placeholder} value={value} onChange={e => setValue(e.target.value)}></input>
-    </>
+    <div className='field-container'>
+      { hasLabel && <p>{placeholder}</p> } 
+      <input className='field' placeholder={placeholder} value={value} onChange={e => setValue(e.target.value)}></input>
+    </div>
   )
 }
