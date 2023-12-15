@@ -1,11 +1,15 @@
+
 import React, { useState } from 'react'
 
-export default function InputField({placeholder='placeholder'}) {
-    const [value, setValue] = useState(placeholder)
+import './style.css'
+
+export default function InputField({placeholder='placeholder', hasLabel = true}) {
+    const [value, setValue] = useState('')
 
   return (
     <>
-    <input className='field' placeholder={value} onChange={e => setValue(e.target.value)}></input>
+    { hasLabel && <p>{placeholder}</p> } 
+    <input className='field' placeholder={placeholder} value={value} onChange={e => setValue(e.target.value)}></input>
     </>
   )
 }

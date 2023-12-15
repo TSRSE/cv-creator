@@ -1,10 +1,11 @@
 .canvas-main{
-    min-width: 100px;
-    min-height: 128px;
-    /* aspect-ratio: 8 / 16; */
-
-    width: min-content;
-    height: fit-content;
+    width: calc(2480px / 4);
+    height: calc(3508px / 4) ;
     
-    border: solid 1px red;
+    aspect-ratio: 8 / 16;
+    
+    border: solid 1px rgb(47, 45, 45);
+    background-color: aliceblue;
+
+    margin-left: 24px;
 }

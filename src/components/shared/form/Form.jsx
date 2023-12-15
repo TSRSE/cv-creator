@@ -1,29 +1,35 @@
+import DropDownHOC from '../../hocs/dropDownHOC/DropDownHOC'
+import Button from '../button/Button'
 import InputField from '../inputFIled/InputField'
 import './form.css'
 
 import React from 'react'
 
-export default function Form({placeholders = []}) {
+export default function Form({fields = [], title = '', isModular = false}) {
 
-  const isNotDisplayable = placeholders == undefined || placeholders.length < 1
-  const listInputFields = (obj) => obj.fields.map((field) => 
-  <>
-    <InputField key={obj.id + field} placeholder={field} />
-  </>
+  const isNotDisplayable = fields == undefined || fields.length < 1
+
+  const fieldList = fields.map((field) => 
+    <InputField key={title + field + '_'} placeholder={field}/>
   )
 
-  const listFields = placeholders.map((obj) =>
-    <>
-      <div key={obj.id}>{obj.id}</div>
-      {listInputFields(obj)}
-    </>
-  )
+  const getForm = () => {
+    return(
+      <div className='form'>
+       <h4>{title}</h4>
+       {fieldList}
+     </div>
+    )
+  }
 
   if (isNotDisplayable) { return null }
-  return (
-      <>
-      {listFields}
-      <div>ok</div>
-      </>
-  )
+  if(isModular) {
+    return (
+    <DropDownHOC textCases={[title, title]} type='secondary'>
+      {getForm()}
+    </DropDownHOC>
+   )
+  }
+  return getForm()
+  
 }

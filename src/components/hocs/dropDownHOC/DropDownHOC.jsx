@@ -3,7 +3,7 @@ import('./DropDownHOC.css')
 import React, { useState } from 'react'
 import Button from '../../shared/button/Button'
 
-export default function DropDownHOC({children, isOpen = false, textCases=['close','open'], variant = 1}) {
+export default function DropDownHOC({children, isOpen = false, textCases=['close','open'], width = 1, height = 1, type = 'accent'}) {
 
   const [isShowing, toggleIsShowing] = useState(isOpen)
   
@@ -11,8 +11,8 @@ export default function DropDownHOC({children, isOpen = false, textCases=['close
     toggleIsShowing(!isShowing)
   }
 
-  const switchSize = (variant) =>{
-    switch (variant) {
+  const switchSize = (size) =>{
+    switch (size) {
       case 0:
         return '100%'
       
@@ -20,26 +20,27 @@ export default function DropDownHOC({children, isOpen = false, textCases=['close
         return 'auto'
     
       default:
-        return `${variant}px`
+        return `${size}px`
     }
   }
 
   const dropDownStyles = {
-    width : switchSize(variant)
+    width : switchSize(width)
+    // height : switchSize(height)
   }
 
   return (
-    <>
+    
     <div style={dropDownStyles}>
       <Button
           text={isShowing ? textCases[0] : textCases[1]}
-          type='accent'
+          type={type}
           onClickHandle={dropDownClickHandle}
           icon='./public/icons/arrow.svg'
           isToggled={isShowing}
         />
       <div>{isShowing && children}</div>
     </div>
-    </>
+    
   )
 }

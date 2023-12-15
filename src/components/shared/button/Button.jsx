@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import './style.css'
 
-export default function Button({text='button', size=[30, 150], type='default', onClickHandle = () => null, icon = '', isToggled = false}) {
-    const buttonSize = {
-        width: size[1],
-        height: size[0]
-    }
+export default function Button({text='button', type='default', onClickHandle = () => null, icon = '', isToggled = false}) {
 
     const [isRotated, setRotate] = useState(isToggled)
 
@@ -24,6 +20,9 @@ export default function Button({text='button', size=[30, 150], type='default', o
     }
 
     return (
-        <button className={type} onClick={functionLoop}>{text}<img src={icon} style={isRotated ? null : rotateIcon}></img></button>
+        <button className={type} onClick={functionLoop}>
+            {text} 
+            {icon.length > 0 && <img src={icon} style={isRotated ? null : rotateIcon}></img>}
+        </button>
     )
 }

@@ -7,7 +7,7 @@ export default function Panel() {
 
   const gigaProps = []
   const forms = {
-    personal : [ 'Name', 'Surname', 'phone', 'email', 'adress', 'telegram', 'facebook' ],
+    personal : [{id: 'personal', fields : [ 'Name', 'Surname', 'phone', 'email', 'adress', 'telegram', 'facebook' ]}],
 
     education : [{id: 'education_1', fields : [ 'started', 'graduated', 'uni name', 'desc' ]}],
 
@@ -17,10 +17,9 @@ export default function Panel() {
   return (
     <>
     <div className='panel-main'>
-      {/* <Cathegory title='Personal' isOpen={true}  fields={forms.personal}/> */}
+      <Cathegory title='Personal' isOpen={true}  fields={forms.personal}/>
       <Cathegory title='Education' modular={true} fields={forms.education}/>
       <Cathegory title='Experience' modular={true} fields={forms.jobs}/>
-      {/* {console.log(forms.jobs)} */}
     </div>
     </>
   )

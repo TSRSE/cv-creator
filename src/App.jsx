@@ -10,15 +10,10 @@ function App() {
 
   return (
     <>
-      {/* <main>
+      <main>
         <Panel/>
         <Canvas/>
-      </main> */}
-      <DropDownHOC variant={400} textCases={['First','Open']}>
-        <DropDownHOC variant={300} textCases={['Second','Open']}>
-          <ChildElement/>
-        </DropDownHOC>
-      </DropDownHOC>
+      </main>
     </>
   )
 }
