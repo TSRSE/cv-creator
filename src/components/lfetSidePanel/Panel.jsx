@@ -1,13 +1,11 @@
 import Cathegory from '../shared/cathegory/Cathegory'
-import Form from '../shared/form/Form'
 import './style.css'
 import React from 'react'
 
-export default function Panel() {
+export default function Panel({changeArray = () => null, array={}}) {
 
-  const gigaProps = []
   const forms = {
-    personal : [{id: 'personal', fields : [ 'Name', 'Surname', 'Phone', 'Email', 'Adress', 'Telegram', 'Facebook' ]}],
+    personal : [{id: 'personal', fields : [ 'Name', 'Surname', 'Phone', 'Email', 'Adress']}],
 
     education : [{id: 'education_1', fields : [ 'started', 'graduated', 'uni name', 'desc' ]}],
 
@@ -15,12 +13,10 @@ export default function Panel() {
   }
 
   return (
-    <>
     <div className='panel-main'>
-      <Cathegory title='Personal' isOpen={true}  fields={forms.personal}/>
-      <Cathegory title='Education' modular={true} fields={forms.education}/>
-      <Cathegory title='Experience' modular={true} fields={forms.jobs}/>
+      <Cathegory title='Personal' isOpen={true}  fields={array.personal} changeArray={changeArray} array={array} myKey={Object.keys(array)[0]}/>
+      <Cathegory title='Education' modular={true} fields={array.education} changeArray={changeArray} array={array} myKey={Object.keys(array)[1]}/>
+      <Cathegory title='Experience' modular={true} fields={array.jobs} changeArray={changeArray} array={array} myKey={Object.keys(array)[2]}/>
     </div>
-    </>
   )
 }
