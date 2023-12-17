@@ -1,0 +1,7 @@
+.canvas{
+    background-color: aliceblue;
+    width: 200px;
+    max-width: 200px;
+    height: fit-content;
+    color: black;
+}

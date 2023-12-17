@@ -1,9 +1,0 @@
-.drop-down{
-    transition: 200ms;
-    height: fit-content;
-}
-
-.drop-down.open{
-    transition: 200ms;
-    height: fit-content;
-}
