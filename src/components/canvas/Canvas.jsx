@@ -1,14 +1,15 @@
 import InfoBlock from '../shared/infoBlock/InfoBlock'
 import './style.css'
-import React from 'react'
+import React, { useReducer, useState } from 'react'
 
-export default function Canvas({elements = []}) {
+export default function Canvas({elements = null}) {
+
   return (
     <>
     <div className='canvas-main'>
-      <InfoBlock title={''}>
-        <>{console.log(elements)}</>
-      </InfoBlock>
+      <InfoBlock title={'Personal'} blocks={elements.personal}/>
+      <InfoBlock title={'EXP'} blocks={elements.job}/>
+      <InfoBlock title={'Education'} blocks={elements.education}/>
     </div>
     </>
   )

@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useReducer, useState } from 'react'
 import './App.css'
 import Panel from './components/lfetSidePanel/Panel'
 import Canvas from './components/canvas/Canvas'
+import MainWrapper from './components/hocs/mainWrapper/MainWrapper'
 
 function App() {
 
@@ -55,16 +56,18 @@ function App() {
 
   const handleChange = (newArray) => {
     setComponentsArray(newArray)
-    {console.log(componentsArray)}
-    // alert('wow')
+  }
+
+  const [UpdateToggle, setUpdateToggle] = useState(false)
+
+  const handleCanvasUpdate = () => {
+    setUpdateToggle(!UpdateToggle)
   }
 
   return (
     <>
       <main>
-      
-        <Panel changeArray={handleChange} array={componentsArray}/>
-        <Canvas elements={componentsArray} />
+        <MainWrapper changeArray={handleChange} array={componentsArray} toggleUpdater={handleCanvasUpdate}/>
       </main>
     </>
   )

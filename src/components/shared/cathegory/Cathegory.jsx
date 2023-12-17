@@ -7,7 +7,7 @@ import './cathegory.css'
 
 import React, { useState } from 'react'
 
-export default function Cathegory({modular = false, title = '', fields=[], changeArray = () => null, array, myKey=''}) {
+export default function Cathegory({modular = false, title = '', fields=[], changeArray = () => null, array, myKey='', canvasUpdate= () => null}) {
 
   const formsList = fields.map((form, index) => 
     <Form key={crypto.randomUUID()} 
