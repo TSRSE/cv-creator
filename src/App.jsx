@@ -5,20 +5,34 @@ import Panel from './components/HOC/Panel'
 import InputField from './components/common/inputField/InputField'
 import Canvas from './components/HOC/Canvas'
 import TextType1 from './components/common/texts/TextType1'
+import Personal from './components/formVariants/Personal/Personal'
 
 function App() {
+  const [inputValue, setInputValue] = useState({ name: "", surname: "" });
+  const { name, surname } = inputValue;
 
-  const [updateText, setUpdateText] = useState('')
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputValue((prev) => ({ ...prev, [name]: value}));
+    // console.log(inputValue);
+  };
 
   return (
     <>
       <main>
         <MainSection>
           <Panel>
-            <InputField name='ass' updateStringHere={setUpdateText}/>
+          <Personal />
+          {/* <div>
+            <InputField name='name' onChange={handleChange}/>
+            <InputField name='surname' onChange={handleChange}/>
+          </div> */}
           </Panel>
           <Canvas>
-            <TextType1 text={updateText}/>
+            <TextType1 text={inputValue.name}/>
+            <TextType1 text={inputValue.surname}/>
+            <TextType1 text={inputValue.surname}/>
+            <TextType1 text={inputValue.surname}/>
           </Canvas>
         </MainSection>
       </main>

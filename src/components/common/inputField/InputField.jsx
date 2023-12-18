@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React  from "react";
 
-export default function InputField({name = '', updateStringHere = () => null}) {
+const InputField = ({ value, label, name, placeholder, type, onChange = () => null }) => (
+  <div className="form-group">
+    {label && <label htmlFor="input-field">{label}</label>}
+    <input
+      type={type}
+      value={value}
+      name={name}
+      className="form-control"
+      placeholder={placeholder}
+      onChange={onChange}
+    />
+  </div>
+);
 
-    const [inputData, setInputData] = useState('');
-
-    const handleChange = (event) => {
-        setInputData(event.target.value);
-        updateStringHere(event.target.value)
-    };
-
-    return (
-        <input type="text" name={name} value={inputData} onChange={handleChange}/>
-    )
-}
+export default InputField;
