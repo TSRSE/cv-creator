@@ -8,7 +8,7 @@ import TextType1 from './components/common/texts/TextType1'
 import Personal from './components/formVariants/Personal/Personal'
 
 function App() {
-  const [inputValue, setInputValue] = useState({ name: "", surname: "" });
+  const [inputValue, setInputValue] = useState({ name: '', surname: '', phoneNumber: '', telegram: '' });
   const { name, surname } = inputValue;
 
   const handleChange = (e) => {
@@ -22,7 +22,7 @@ function App() {
       <main>
         <MainSection>
           <Panel>
-          <Personal />
+          <Personal onChange={handleChange} />
           {/* <div>
             <InputField name='name' onChange={handleChange}/>
             <InputField name='surname' onChange={handleChange}/>
@@ -31,8 +31,8 @@ function App() {
           <Canvas>
             <TextType1 text={inputValue.name}/>
             <TextType1 text={inputValue.surname}/>
-            <TextType1 text={inputValue.surname}/>
-            <TextType1 text={inputValue.surname}/>
+            <TextType1 text={inputValue.phoneNumber}/>
+            <TextType1 text={inputValue.telegram}/>
           </Canvas>
         </MainSection>
       </main>
