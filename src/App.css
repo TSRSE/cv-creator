@@ -25,3 +25,13 @@ main{
     display: flex;
     justify-content: center;
 }
+
+h1,h2,h3,h4,p,a,span{
+    margin: 0;
+    padding: 0;
+}
+
+.panel-wrap{
+    display: flex;
+    flex-direction: column;
+}
