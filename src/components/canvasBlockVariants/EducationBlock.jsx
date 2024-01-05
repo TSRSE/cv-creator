@@ -1,7 +1,7 @@
 import React from 'react'
 import TextType1 from '../common/texts/TextType1'
 
-export default function EducationBlock({children, displayableText = []}) {
+export default function EducationBlock({children, displayableText = {}}) {
 
     const displayTextList = Object.keys(displayableText).map((text, key) =>
     <TextType1 

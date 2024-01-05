@@ -11,6 +11,7 @@ import Personal from './components/formVariants/Personal/Personal'
 import PersonalBlock from './components/canvasBlockVariants/PersonalBlock'
 import EducationBlock from './components/canvasBlockVariants/EducationBlock'
 import Education from './components/formVariants/Education/Education'
+import EducationBlockCollector from './components/canvasBlockVariants/EducationBlockCollector'
 
 
 function App() {
@@ -18,7 +19,10 @@ function App() {
 
   const [inputValue, setInputValue] = useState({ name: '', surname: '', phoneNumber: '', telegram: '' });
 
-  const [educationValues, setEducationValues] = useState({from: '', to: '', place: ''})
+  const [educationValues, setEducationValues] = useState([
+    {id: 'ed1', from: '', to: '', place: ''}, 
+    {id: 'ed2', from: '', to: '', place: ''}, 
+  ])
 
   const { name, surname } = inputValue;
 
@@ -27,10 +31,23 @@ function App() {
     setInputValue((prev) => ({ ...prev, [name]: value}));
   };
 
+  const handleTextUpdatedInForm = (e, id) => {
+    const updatedTextFeildsArray = educationValues.map((block) => 
+    {
+      const { name, value } = e.target
+      return block.id === id ? {...block, [name]: value} : {block}
+    })
+
+    setEducationValues(updatedTextFeildsArray)
+  }
+
   const handleChangeEducation = (e) => {
     const { name, value } = e.target;
+    // console.log(prev);
     setEducationValues((prev) => ({ ...prev, [name]: value}));
   };
+  // const educationBlocksList = educationValues.map((x, index) => <EducationBlock key={`edBlock_`+index} displayableText = {x} />)
+  const educationPanelsList = educationValues.map((x, index) => <Education key={crypto.randomUUID()} onChange={(e) => {handleTextUpdatedInForm(e, x.id)}}/> )
 
   return (
     <>
@@ -38,13 +55,16 @@ function App() {
         <MainSection>
           <Panel>
             <Personal onChange={handleChangePersonal} />
-            <Education onChange={handleChangeEducation}/>
+            {/* <Education onChange={handleChangeEducation}/> */}
+            {educationPanelsList}
           </Panel>
           <Canvas>
           
             <PersonalBlock displayableText = {inputValue} />
             <div>--<br></br>--</div>
-            <EducationBlock displayableText = {educationValues} />
+            <EducationBlockCollector fieldArray={educationValues}/>
+            {/* {educationBlocksList} */}
+            {/* <EducationBlock displayableText = {educationValues} /> */}
           </Canvas>
         </MainSection>
       </main>
