@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 
 import './style.css'
 
-export default function InputField({placeholder, hasLabel = true, changeArray = () => null, array=[], myKey='', localKey=''}) {
+export default function InputField({placeholder, hasLabel = true, changeArray = () => null, changableArray=[], myKey='', localKey='', isOpen = false}) {
 
-    const currentField = array[`${myKey}`].find(x => x.id == localKey).fields.find(x => [`${Object.keys(placeholder)[0]}`] in x)[`${Object.keys(placeholder)[0]}`]
+    const currentField = changableArray[`${myKey}`].find(x => x.id == localKey).fields.find(x => [`${Object.keys(placeholder)[0]}`] in x)[`${Object.keys(placeholder)[0]}`]
 
     const [value, setValue] = useState(currentField)
 
@@ -29,11 +29,14 @@ export default function InputField({placeholder, hasLabel = true, changeArray = 
     }
 
 
-    const temp = (e) =>{
+    const temp = (e) => {
       setValue(e.target.value)
-      const newArray = updateGlobalArray_V2(array, e.target.value)
+      const newArray = updateGlobalArray_V2(changableArray, e.target.value)
       // const newArray = updateGlobalArray(e.target.value)
-      changeArray(newArray);
+      // changeArray({...changableArray,  [myKey] : newArray[myKey]  });
+      changeArray(newArray)
+      // changeArray({...newArray, [myKey]:newArray[myKey][localKey]})
+      // console.log({...newArray, [myKey] : newArray[myKey]});
     }
 
   return (

@@ -3,11 +3,25 @@ import('./DropDownHOC.css')
 import React, { useState } from 'react'
 import Button from '../../shared/button/Button'
 
-export default function DropDownHOC({children, isOpen = false, textCases=['close','open'], width = 1, type = 'accent'}) {
+export default function DropDownHOC({children, array={}, handleClose = () => null, isOpen = false, textCases=['close','open'], width = 1, type = 'accent', myKey='', localKey=''}) {
 
   const [isShowing, toggleIsShowing] = useState(isOpen)
   
+ 
+
+  const updateGlobalArray_V2_open = () => {
+    if (Object.keys(array).length === 0) {
+      return array
+    }
+    const tempArr = array
+    tempArr[`${myKey}`].find(x => x.id == localKey).isOpen = !isShowing
+    return tempArr
+  }
+
   const dropDownClickHandle = () =>{
+    
+    const newArr = updateGlobalArray_V2_open()
+    handleClose(newArr)
     toggleIsShowing(!isShowing)
   }
 

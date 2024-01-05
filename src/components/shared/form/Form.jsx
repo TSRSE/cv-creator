@@ -5,12 +5,12 @@ import './form.css'
 
 import React from 'react'
 
-export default function Form({fields = [], title = '', isModular = false, isDeletable = false, changeArray = () => null, array, localKey, myKey=''}) {
+export default function Form({fields = [], title = '', isModular = false, isDeletable = false, changeArray = () => null, changableArray, localKey, myKey='', isOpen = false}) {
 
   const isNotDisplayable = fields == undefined || fields.length < 1
 
   const fieldList = fields.map((field) => 
-    <InputField key={crypto.randomUUID()} placeholder={field} changeArray={changeArray} array={array} myKey={myKey} localKey={localKey}/>
+    <InputField key={crypto.randomUUID()} placeholder={field} changeArray={changeArray} changableArray={changableArray} myKey={myKey} localKey={localKey}/>
   )
 
   const getForm = () => {
@@ -27,7 +27,7 @@ export default function Form({fields = [], title = '', isModular = false, isDele
   if (isNotDisplayable) { return null }
   if(isModular) {
     return (
-    <DropDownHOC textCases={[title, title]} type='secondary'>
+    <DropDownHOC textCases={[title, title]} isOpen={isOpen} array={changableArray} type='secondary' myKey={myKey} localKey={localKey} handleClose={changeArray}>
       {getForm()}
     </DropDownHOC>
    )
