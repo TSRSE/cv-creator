@@ -9,6 +9,7 @@ export default function InputField({placeholder, hasLabel = true, changeArray = 
 
     const [value, setValue] = useState(currentField)
 
+    //TODO Delete
     const updateGlobalArray = (actualvalue) => {
       const newArray = array
       newArray[`${myKey}`].map((element) => {

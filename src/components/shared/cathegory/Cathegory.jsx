@@ -10,7 +10,7 @@ import React, { useState } from 'react'
 export default function Cathegory({modular = false, title = '', fields=[], changeArray = () => null, changableArray, myKey='', canvasUpdate= () => null}) {
 
   const formsList = fields.map((form, index) => 
-    <Form key={crypto.randomUUID()} 
+    <Form key={form.id} 
     fields={form.fields} 
     isOpen={form.isOpen}
     title={`${title} ${index+1}`} 
@@ -20,7 +20,7 @@ export default function Cathegory({modular = false, title = '', fields=[], chang
     changableArray={changableArray}
     localKey={form.id}
     myKey={myKey}></Form>
-    
+  
   )
 
   return (

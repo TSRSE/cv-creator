@@ -10,7 +10,7 @@ export default function Form({fields = [], title = '', isModular = false, isDele
   const isNotDisplayable = fields == undefined || fields.length < 1
 
   const fieldList = fields.map((field) => 
-    <InputField key={crypto.randomUUID()} placeholder={field} changeArray={changeArray} changableArray={changableArray} myKey={myKey} localKey={localKey}/>
+    <InputField key={localKey + '_' + myKey + '_' + Object.keys(field)[0]} placeholder={field} changeArray={changeArray} changableArray={changableArray} myKey={myKey} localKey={localKey}/>
   )
 
   const getForm = () => {

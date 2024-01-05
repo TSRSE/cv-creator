@@ -13,7 +13,7 @@ function App() {
 
 
   const handleChange = (newArray) => {
-    setComponentsArray(newArray)
+    setComponentsArray({...newArray})
     
   }
   const handleCanvasUpdate = () => {
