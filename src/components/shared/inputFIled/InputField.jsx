@@ -35,7 +35,7 @@ export default function InputField({placeholder, hasLabel = true, changeArray = 
       const newArray = updateGlobalArray_V2(changableArray, e.target.value)
       // const newArray = updateGlobalArray(e.target.value)
       // changeArray({...changableArray,  [myKey] : newArray[myKey]  });
-      changeArray(newArray)
+      changeArray({...newArray})
       // changeArray({...newArray, [myKey]:newArray[myKey][localKey]})
       // console.log({...newArray, [myKey] : newArray[myKey]});
     }
