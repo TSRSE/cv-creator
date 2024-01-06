@@ -8,15 +8,8 @@ import React from 'react'
 export default function Form({fields = [], title = '', isModular = false, isDeletable = false, changeArray = () => null, changableArray, localKey, myKey='', isOpen = false}) {
 
   const handleDeleteClick = () => {
-    // console.log(changableArray[myKey].findIndex((x) => x.id == localKey));
-    // console.log(myKey + localKey);
-    // console.log(changableArray[myKey].splice(changableArray[myKey].findIndex((x) => x.id == localKey)));
-
     const updatedArray = changableArray
-    updatedArray[myKey] = updatedArray[myKey].splice(updatedArray[myKey].findIndex((x) => x.id == localKey)-1, 1)
-    // changableArray[myKey].splice(changableArray[myKey].findIndex((x) => x.id == localKey))
-    // console.log(updatedArray);
-    console.log(changeArray);
+    updatedArray[myKey].splice(changableArray[myKey].findIndex(x => x.id === localKey), 1)
     changeArray({...updatedArray})
   }
 
