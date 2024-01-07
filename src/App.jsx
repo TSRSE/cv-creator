@@ -2,7 +2,6 @@ import { useReducer, useState } from 'react'
 import './App.css'
 import Panel from './components/lfetSidePanel/Panel'
 import Canvas from './components/canvas/Canvas'
-import MainWrapper from './components/hocs/mainWrapper/MainWrapper'
 import CreateDataSet from './components/utils/CreateDataSet'
 
 function App() {

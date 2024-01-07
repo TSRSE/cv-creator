@@ -49,7 +49,7 @@ export default function DropDownHOC({children, array={}, handleClose = () => nul
           text={isShowing ? textCases[0] : textCases[1]}
           type={type}
           onClickHandle={dropDownClickHandle}
-          icon='./public/icons/arrow-white.svg'
+          icon='/icons/arrow-white.svg'
           isToggled={isShowing}
         />
       <div className={isShowing ? 'dropdown-back-open' : 'dropdown-back-closed'}>{children}</div>
