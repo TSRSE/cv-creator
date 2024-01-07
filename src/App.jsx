@@ -10,23 +10,17 @@ function App() {
   const [UpdateToggle, setUpdateToggle] = useState(false)
   const [componentsArray, setComponentsArray] = useState(CreateDataSet)
   
-
-
   const handleChange = (newArray) => {
     setComponentsArray(newArray)
     
   }
-  const handleCanvasUpdate = () => {
-    setUpdateToggle(!UpdateToggle)
-  }
 
   return (
     <>
-      <main>
+    <main>
       <Panel changeArray={handleChange} layoutArray={CreateDataSet} changableArray={componentsArray}/>
-      <MainWrapper array={componentsArray} toggleUpdater={handleCanvasUpdate}/>
-      
-      </main>
+      <Canvas elements={componentsArray}/>
+    </main>
     </>
   )
 }

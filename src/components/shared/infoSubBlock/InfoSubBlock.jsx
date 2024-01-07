@@ -10,11 +10,10 @@ export default function InfoSubBlock({title = 'title', infoToShow = []}) {
     )
     return (
     <>
-        <h2>{title}</h2>
+        {/* <h2>{title}</h2> */}
+        {/* <h1>kekW</h1> */}
         {listOfInfo}
-        {/* {console.log(infoToShow)} */}
-        
+        {console.log(infoToShow)}
     </>
-
     )
 }

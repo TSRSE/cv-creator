@@ -8,8 +8,8 @@ export default function Canvas({elements = null}) {
     <>
     <div className='canvas-main'>
       <InfoBlock title={'Personal'} blocks={elements.personal}/>
-      <InfoBlock title={'EXP'} blocks={elements.job}/>
       <InfoBlock title={'Education'} blocks={elements.education}/>
+      <InfoBlock title={'Experience'} blocks={elements.jobs}/>
     </div>
     </>
   )

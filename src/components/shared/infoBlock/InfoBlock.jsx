@@ -9,11 +9,10 @@ export default function InfoBlock({title = 'title', blocks = []}) {
 
   return (
     <div className='info-block'>
-        <div className='info-block--header'>
-            <h1>{title}</h1>
-        </div>
-        {listOfSubBlocks}
-
+      <div className='info-block--header'>
+        <h1>{title}</h1>
+      </div>
+      {listOfSubBlocks}
     </div>
   )
 }
