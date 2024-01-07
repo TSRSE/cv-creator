@@ -1,8 +1,6 @@
 import DropDownHOC from '../../hocs/dropDownHOC/DropDownHOC'
 import Button from '../button/Button'
-import DropDown from '../dropDown/dropDown'
 import Form from '../form/Form'
-import InputField from '../inputFIled/InputField'
 import { getNewEducation, getNewJob } from '../../utils/FormsObjectModels'
 import './cathegory.css'
 
